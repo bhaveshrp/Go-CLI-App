@@ -4,9 +4,9 @@ Copyright © 2024 NAME HERE <EMAIL ADDRESS>
 package cmd
 
 import (
-	"fmt"
-	"github.com/spf13/cobra"
 	"tri/todo"
+
+	"github.com/spf13/cobra"
 )
 
 // addCmd represents the add command
@@ -20,9 +20,9 @@ var addCmd = &cobra.Command{
 func addRun(cmd *cobra.Command, args []string) {
 	items := []todo.Item{}
 	for _, x := range args {
-		items = append(items, todo.Item{Text:x})
+		items = append(items, todo.Item{Text: x})
 	}
-	fmt.Printf("%#v\n", items)
+	todo.SaveItems("x", items)
 }
 
 func init() {
