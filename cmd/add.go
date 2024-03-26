@@ -9,6 +9,7 @@ import (
 	"tri/todo"
 
 	"github.com/spf13/cobra"
+	"github.com/spf13/viper"
 )
 
 var priority int
@@ -23,7 +24,7 @@ var addCmd = &cobra.Command{
 
 func addRun(cmd *cobra.Command, args []string) {
 	// Get the existing todo list
-	items, err := todo.ReadItems(dataFile)
+	items, err := todo.ReadItems(viper.GetString("datafile"))
 	if err != nil {
 		log.Printf("%v", err)
 	}
@@ -34,7 +35,7 @@ func addRun(cmd *cobra.Command, args []string) {
 		items = append(items, item)
 	}
 	// Write todo list to json file
-	err = todo.SaveItems(dataFile, items)
+	err = todo.SaveItems(viper.GetString("datafile"), items)
 	if err != nil {
 		return_value := fmt.Errorf("%v", err)
 		fmt.Println(return_value)
