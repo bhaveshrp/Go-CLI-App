@@ -79,7 +79,7 @@ func (i *Item) PrettyP() string {
 	if i.Priority == 3 {
 		return "(3)"
 	}
-	return " "
+	return "(2)"
 }
 
 func (i *Item) Label() string {
