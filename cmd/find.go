@@ -7,7 +7,7 @@ import (
 	"os"
 	"fmt"
 	"strings"
-	"tri/todo"
+	"todos/todo"
 	"text/tabwriter"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"

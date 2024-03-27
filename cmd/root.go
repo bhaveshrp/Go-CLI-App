@@ -16,7 +16,7 @@ var cfgFile string
 
 // rootCmd represents the base command when called without any subcommands
 var rootCmd = &cobra.Command{
-	Use:   "tri",
+	Use:   "todos",
 	Short: "A brief description of your application",
 	Long: `A longer description that spans multiple lines and likely contains
 examples and usage of using your application. For example:
@@ -39,13 +39,13 @@ func Execute() {
 }
 
 func initConfig() {
-	viper.SetConfigName("tri")
+	viper.SetConfigName("todos")
 	viper.SetConfigType("yaml")
 	viper.AddConfigPath(".")
 	viper.AddConfigPath("../")
 	viper.AddConfigPath(".")
 	// viper.Set("datafile", "D:/go/tri/tridos.json")
-	viper.SetEnvPrefix("tri")
+	viper.SetEnvPrefix("todos")
 	viper.AutomaticEnv()
 
 	// If a config file is found, read it in.
@@ -61,16 +61,16 @@ func init() {
 	// will be global for your application.
 	cobra.OnInitialize(initConfig)
 	// home, err := homedir.Dir()
-	home := "D:/go/tri"
+	home := "D:/go/todos"
 	// if err != nil {
 	// 	log.Println("Unable to detect home directory. Please set data file using --datafile.")
 	// }
 
-	// rootCmd.PersistentFlags().StringVar(&cfgFile, "config", "", "config file (default is $HOME/.tri.yaml)")
+	// rootCmd.PersistentFlags().StringVar(&cfgFile, "config", "", "config file (default is $HOME/todos.yaml)")
 
 	// Cobra also supports local flags, which will only run
 	// when this action is called directly.
 	rootCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
-	rootCmd.PersistentFlags().StringVar(&dataFile, "datafile", home+string(os.PathSeparator)+"tridos.json", "data file to store todos")
-	rootCmd.PersistentFlags().StringVar(&cfgFile, "config", "", "config file (default is home/tri.yaml)")
+	rootCmd.PersistentFlags().StringVar(&dataFile, "datafile", home+string(os.PathSeparator)+"tasks.json", "data file to store todos")
+	rootCmd.PersistentFlags().StringVar(&cfgFile, "config", "", "config file (default is home/todos.yaml)")
 }

@@ -6,7 +6,7 @@ package cmd
 import (
 	"fmt"
 	"log"
-	"tri/todo"
+	"todos/todo"
 
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
